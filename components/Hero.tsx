@@ -38,7 +38,7 @@ const Heading = styled.h1`
 const Subtext = styled.h2`
   grid-column: 1/-1;
   text-align: center;
-  font-family: Lato-Regular;
+  font-family: Lato;
   font-size: 18px;
   color: #ffffff;
   letter-spacing: 0;
