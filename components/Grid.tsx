@@ -10,5 +10,7 @@ export const Grid = styled.section`
 
   @media ${device.tablet} {
     padding: 0px 64px;
+    min-height: 440px;
+    place-content: center;
   }
 `;
