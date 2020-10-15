@@ -1,6 +1,16 @@
+import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 
-export const Button = styled.button`
+export enum ButtonStyles {
+  Primary,
+  Secondary,
+}
+
+type Props = {
+  buttonStyle?: ButtonStyles;
+};
+
+const Button = styled.button`
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -22,4 +32,18 @@ export const Button = styled.button`
   color: #ffffff;
   letter-spacing: 0;
   line-height: 48px;
+
+  ${(props: Props) =>
+    props.buttonStyle === ButtonStyles.Secondary &&
+    css`
+      background-image: linear-gradient(180deg, #ffffff 0%, #d8d8d8 100%);
+      border: 1px solid #0091ff;
+      box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12), 0 4px 4px 0 rgba(0, 0, 0, 0.24),
+        inset 0 2px 0 0 #ffffff;
+      font-family: Lato-Bold;
+      color: #0091ff;
+      text-shadow: 0 1px 0 #ffffff;
+    `}
 `;
+
+export default Button;

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { device } from "../lib/constants";
-import { Button } from "./Button";
+import Button from "./Button";
 import { Grid } from "./Grid";
 
 const Section = styled(Grid)`
