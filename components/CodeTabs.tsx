@@ -69,7 +69,7 @@ const Tab = styled.li`
   letter-spacing: 0;
   text-align: center;
   line-height: 40px;
-  padding: 15px 20px;
+  padding: 15px 24px;
   border-style: none;
   cursor: pointer;
 

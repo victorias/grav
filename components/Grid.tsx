@@ -5,8 +5,8 @@ const Grid = styled.section`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: min-content;
-  grid-column-gap: 20px;
-  padding: 0px 20px;
+  grid-column-gap: 24px;
+  padding: 0px 24px;
 
   @media ${device.tablet} {
     padding: 0px 64px;

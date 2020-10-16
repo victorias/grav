@@ -15,6 +15,7 @@ const Global = ({}: Props) => (
     styles={css`
       @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
       @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap");
 
       html,
       body,
@@ -143,6 +144,11 @@ const Global = ({}: Props) => (
 
       html {
         font-family: "Lato", sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
       }
     `}
   />

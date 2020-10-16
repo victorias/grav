@@ -26,6 +26,7 @@ const quotes = [
 ];
 
 const Section = styled(Grid)`
+  padding-bottom: 24px;
   background-image: linear-gradient(
     180deg,
     rgba(50, 197, 255, 0.12) 0%,

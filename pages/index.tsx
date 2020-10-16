@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import CodeSection from "../components/CodeSection";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import InfinitySection from "../components/InfinitySection";
@@ -19,6 +20,7 @@ const Index = ({}: Props) => {
       <InfinitySection />
       <QuoteSection />
       <CodeSection />
+      <Footer />
     </Stack>
   );
 };

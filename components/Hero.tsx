@@ -9,7 +9,7 @@ const Section = styled(Grid)`
 
   @media ${device.tablet} {
     background: url("./iphone-front.png") bottom -100px right 300px no-repeat,
-      url("./iphone-back.png") bottom -100px right 20px no-repeat,
+      url("./iphone-back.png") bottom -100px right 24px no-repeat,
       linear-gradient(225deg, #32c5ff 0%, #b620e0 51%, #f7b500 100%) center
         no-repeat;
     place-content: center;
@@ -53,7 +53,7 @@ const Subtext = styled.h2`
 
 const ExploreProductsButton = styled(Button)`
   grid-column: 2/-2;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   @media ${device.tablet} {
     margin-bottom: 0px;
     grid-column: 1 / 4;

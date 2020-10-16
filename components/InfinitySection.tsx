@@ -6,13 +6,13 @@ import Button, { ButtonStyles } from "./Button";
 const Section = styled(Grid)`
   background-color: #fcfcfc;
   background: url("./triangle-background.png") no-repeat;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 
   @media ${device.tablet} {
     min-height: 440px;
     place-content: center;
-    background: url("./iphone-in-hand.png") top -40px left no-repeat,
+    background: url("./iphone-in-hand.png") top -40px left -30px no-repeat,
       url("./triangle-background.png") no-repeat;
   }
 `;
@@ -47,7 +47,7 @@ const Subtext = styled.p`
 
 const CTAContainer = styled.div`
   grid-column: 1 / -1;
-  margin: 0px -20px;
+  margin: 0px -24px;
   padding-top: 176px;
   background: url("./iphone-in-hand.png") top -40px left no-repeat;
   background-size: contain;
@@ -63,7 +63,7 @@ const CTAContainer = styled.div`
 `;
 
 const LearnMoreButton = styled(Button)`
-  margin: 0px 20px;
+  margin: 0px 24px;
 `;
 
 const InfinitySection = () => (
