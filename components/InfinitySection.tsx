@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Grid } from "./Grid";
+import Grid from "./Grid";
 import { device } from "../lib/constants";
 import Button, { ButtonStyles } from "./Button";
 

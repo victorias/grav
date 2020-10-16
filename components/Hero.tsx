@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { device } from "../lib/constants";
 import Button from "./Button";
-import { Grid } from "./Grid";
+import Grid from "./Grid";
 
 const Section = styled(Grid)`
   background: linear-gradient(225deg, #32c5ff 0%, #b620e0 51%, #f7b500 100%)
@@ -38,7 +38,6 @@ const Heading = styled.h1`
 const Subtext = styled.h2`
   grid-column: 1/-1;
   text-align: center;
-  font-family: Lato;
   font-size: 18px;
   color: #ffffff;
   letter-spacing: 0;

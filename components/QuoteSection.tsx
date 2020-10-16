@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Grid } from "./Grid";
+import Grid from "./Grid";
 import { device } from "../lib/constants";
 import { useState } from "react";
 import { css } from "@emotion/core";
