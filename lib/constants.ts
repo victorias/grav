@@ -1,7 +1,3 @@
-export const Colors = {
-  Gray: "#6B8897",
-};
-
 const size = {
   mobileS: "320px",
   mobileM: "375px",

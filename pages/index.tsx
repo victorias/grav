@@ -16,6 +16,7 @@ type Props = {};
 const Index = ({}: Props) => {
   return (
     <Stack>
+      <Header />
       <Hero />
       <InfinitySection />
       <QuoteSection />

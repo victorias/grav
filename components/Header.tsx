@@ -1,41 +1,156 @@
+import { css } from "@emotion/core";
 import styled from "@emotion/styled";
-import { Colors } from "../lib/constants";
+import { useState } from "react";
+import { device } from "../lib/constants";
+import Dropdown from "./Dropdown";
 
 const Flex = styled.header`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 18px 22px;
+  flex-direction: column;
+  padding: 0px 24px;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const Logo = styled.div`
   font-size: 18px;
-  color: ${Colors.Gray};
+  color: #6b8897;
+`;
+
+const NavContainer = styled.nav`
+  display: flex;
+  flex: 0 0 auto;
 `;
 
 const Nav = styled.ul`
   display: flex;
-  flex-direction: row;
-  li {
-    color: ${Colors.Gray};
-    text-transform: uppercase;
-  }
+  flex-direction: column;
+  margin-top: 12px;
+  width: 100%;
 
-  li + li {
-    margin-left: 49px;
+  @media ${device.tablet} {
+    margin-top: 0px;
+    flex-direction: row;
   }
 `;
 
-type Props = {};
-const Header = ({}: Props) => (
+const NavLi = styled.li`
+  color: #6b8897;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  position: relative;
+
+  ${(props: { selected?: boolean }) =>
+    props.selected &&
+    css`
+      border-bottom: #32c5ff;
+      border-bottom-style: solid;
+    `}
+
+  @media ${device.tablet} {
+    padding: 12px 24px;
+  }
+`;
+
+const NavLink = ({
+  onClick,
+  children,
+  selected,
+}: {
+  onClick?: () => void;
+  children: React.ReactNode;
+  selected?: boolean;
+}) => (
+  <a href="">
+    <NavLi selected={selected}>{children}</NavLi>
+  </a>
+);
+
+const ProductTitle = styled.h3`
+  font-weight: 700;
+  font-size: 14px;
+  color: #7a44ff;
+  letter-spacing: 0;
+  line-height: 32px;
+`;
+
+const ProductDescription = styled.p`
+  font-size: 11px;
+  font-weight: 700;
+  color: #6d7278;
+  letter-spacing: 0;
+  line-height: 18px;
+`;
+
+const ProductRow = styled.div`
+  display: flex;
+  height: 77px;
+  padding: 12px 24px;
+
+  ${(props: { isLast?: boolean }) =>
+    props.isLast &&
+    css`
+      border-top: #d8d8d8;
+      border-top-style: solid;
+    `}
+`;
+
+const ProductText = styled.div``;
+const ProductImage = styled.div`
+  flex: 0 0 77px;
+  width: 77px;
+  background: url(${(props: { imgUrl: string }) => props.imgUrl}) center center
+    no-repeat;
+  background-size: contain;
+`;
+
+const ProductNavLink = () => {
+  const [dropdownIsVisible, setDropdownIsVisible] = useState(false);
+
+  return (
+    <NavLink>
+      Product
+      <Dropdown isVisible>
+        <ProductRow>
+          <ProductImage imgUrl="./products1.png" />
+          <ProductText>
+            <ProductTitle>INFINXITY X</ProductTitle>
+            <ProductDescription>
+              Beard tumblr williamsburg forage shabby chic tote bag,
+              chicharrones stumptown godard mustache hella street art.
+            </ProductDescription>
+          </ProductText>
+        </ProductRow>
+        <ProductRow isLast>
+          <ProductImage imgUrl="./products2.png" />
+          <ProductText>
+            <ProductTitle>SAPPHIRE 65</ProductTitle>
+            <ProductDescription>
+              Beard tumblr williamsburg forage shabby chic tote bag,
+              chicharrones stumptown godard mustache hella street art.
+            </ProductDescription>
+          </ProductText>
+        </ProductRow>
+      </Dropdown>
+    </NavLink>
+  );
+};
+
+const Header = () => (
   <Flex>
     <Logo>ACME CO.</Logo>
-    <Nav>
-      <li>Overview</li>
-      <li>Product</li>
-      <li>Support</li>
-      <li>Company</li>
-    </Nav>
+    <NavContainer>
+      <Nav>
+        <NavLink selected>Overview</NavLink>
+        <ProductNavLink />
+        <NavLink>Support</NavLink>
+        <NavLink>Company</NavLink>
+      </Nav>
+    </NavContainer>
   </Flex>
 );
 
