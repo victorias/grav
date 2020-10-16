@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import InfinitySection from "../components/InfinitySection";
 import QuoteSection from "../components/QuoteSection";
+import SEO from "../components/SEO";
 
 const Stack = styled.div`
   display: flex;
@@ -16,6 +17,7 @@ type Props = {};
 const Index = ({}: Props) => {
   return (
     <Stack>
+      <SEO />
       <Header />
       <Hero />
       <InfinitySection />
