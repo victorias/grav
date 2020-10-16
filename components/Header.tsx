@@ -7,23 +7,56 @@ import Dropdown from "./Dropdown";
 const Flex = styled.header`
   display: flex;
   flex-direction: column;
-  padding: 0px 24px;
+  padding: 24px 24px;
 
   @media ${device.tablet} {
+    padding: 0px 24px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
 `;
 
+const Container = styled.div`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  display: flex;
+`;
+
 const Logo = styled.div`
   font-size: 18px;
   color: #6b8897;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: space-between;
 `;
 
 const NavContainer = styled.nav`
   display: flex;
   flex: 0 0 auto;
+
+  ${(props: { isOpen: boolean }) =>
+    !props.isOpen &&
+    css`
+      display: none;
+    `}
+
+  @media ${device.tablet} {
+    display: flex;
+  }
+`;
+
+const HamburgerButton = styled.button`
+  background: url("./hamburger-icon.png") center center no-repeat;
+  width: 32px;
+  height: 28px;
+  border-style: none;
+
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 
 const Nav = styled.ul`
@@ -43,6 +76,7 @@ const NavLi = styled.li`
   text-transform: uppercase;
   padding: 12px 24px;
   position: relative;
+  cursor: pointer;
 
   ${(props: { selected?: boolean }) =>
     props.selected &&
@@ -65,7 +99,7 @@ const NavLink = ({
   children: React.ReactNode;
   selected?: boolean;
 }) => (
-  <a href="">
+  <a onClick={() => onClick && onClick()}>
     <NavLi selected={selected}>{children}</NavLi>
   </a>
 );
@@ -112,9 +146,13 @@ const ProductNavLink = () => {
   const [dropdownIsVisible, setDropdownIsVisible] = useState(false);
 
   return (
-    <NavLink>
+    <NavLink
+      onClick={() => {
+        setDropdownIsVisible((isVisible) => !isVisible);
+      }}
+    >
       Product
-      <Dropdown isVisible>
+      <Dropdown isVisible={dropdownIsVisible}>
         <ProductRow>
           <ProductImage imgUrl="./products1.png" />
           <ProductText>
@@ -140,18 +178,28 @@ const ProductNavLink = () => {
   );
 };
 
-const Header = () => (
-  <Flex>
-    <Logo>ACME CO.</Logo>
-    <NavContainer>
-      <Nav>
-        <NavLink selected>Overview</NavLink>
-        <ProductNavLink />
-        <NavLink>Support</NavLink>
-        <NavLink>Company</NavLink>
-      </Nav>
-    </NavContainer>
-  </Flex>
-);
+const Header = () => {
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  return (
+    <Flex>
+      <Container>
+        <Logo>ACME CO.</Logo>
+        <HamburgerButton
+          onClick={() => {
+            setMenuIsOpen((isOpen) => !isOpen);
+          }}
+        />
+      </Container>
+      <NavContainer isOpen={menuIsOpen}>
+        <Nav>
+          <NavLink selected>Overview</NavLink>
+          <ProductNavLink />
+          <NavLink>Support</NavLink>
+          <NavLink>Company</NavLink>
+        </Nav>
+      </NavContainer>
+    </Flex>
+  );
+};
 
 export default Header;

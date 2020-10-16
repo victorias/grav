@@ -6,6 +6,12 @@ const DropdownContainer = styled.dialog`
   background: none;
   padding: 0px;
   z-index: 100;
+  left: -25px;
+
+  max-width: 100vw;
+  @media ${device.tablet} {
+    left: -25%;
+  }
 `;
 
 const ChildrenContainer = styled.div`
@@ -14,17 +20,12 @@ const ChildrenContainer = styled.div`
   border: 1px solid #979797;
   border-radius: 4px;
   margin-top: 20px;
-  width: 432px;
-  max-width: 100vw;
+  width: 422px;
+  max-width: 100%;
   text-transform: none;
   position: relative;
   display: flex;
   flex-direction: column;
-  left: -20px;
-
-  @media ${device.tablet} {
-    left: -25%;
-  }
 `;
 
 const DropdownTriangle = styled.div`
@@ -35,7 +36,7 @@ const DropdownTriangle = styled.div`
 
   position: absolute;
   top: -5px;
-  right: 60%;
+  right: 80%;
   border-bottom: 5px solid #ffffff;
 `;
 
