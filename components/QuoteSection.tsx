@@ -121,8 +121,8 @@ const QuoteSection = () => {
   return (
     <Section>
       <Quote>
-        <QuoteMarkLeft>“</QuoteMarkLeft>
-        <QuoteMarkRight>”</QuoteMarkRight>
+        <QuoteMarkLeft>{'“'}</QuoteMarkLeft>
+        <QuoteMarkRight>{'”'}</QuoteMarkRight>
         {selectedQuote.quote}
         <Author>- {selectedQuote.name}</Author>
         <AvatarContainer>
@@ -130,6 +130,7 @@ const QuoteSection = () => {
             <Avatar
               selected={avatarUrl === selectedQuote.avatarUrl}
               src={avatarUrl}
+              key={avatarUrl}
             />
           ))}
         </AvatarContainer>
